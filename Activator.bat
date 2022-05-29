@@ -30,13 +30,17 @@ CLS
 ECHO Windows Activator by IcanLevitate. Please choose your windows Edition.
 ECHO 1.Windows 10/11 Pro
 ECHO 2.Windows 10/11 Pro N
-ECHO 3.Windows 10 Pro For Workstations
-ECHO 4.Windows 10 Enterprise 
-ECHO 5.Windows 10 Enterprise N
+ECHO 3.Windows 10/11 Pro For Workstations
+ECHO 4.Windows 10/11 Enterprise 
+ECHO 5.Windows 10/11 Enterprise N
+ECHO 6. Windows 10/11 Home
+ECHO 7. Windows 10/11 Home N
 
-CHOICE /C 12345 /M "Enter your choice:"
+CHOICE /C 1234567 /M "Enter your choice:"
 
 :: Note - list ERRORLEVELS in decreasing order
+IF ERRORLEVEL 7 GOTO W10HOMEN
+IF ERRORLEVEL 6 GOTO W10HOME
 IF ERRORLEVEL 5 GOTO W10ENTERPRISEN
 IF ERRORLEVEL 4 GOTO W10ENTERPRISE
 IF ERRORLEVEL 3 GOTO W10PROWORKSTATION
@@ -84,6 +88,24 @@ GOTO End
 cd C:\Windows\System32
 @ECHO ON
 cscript slmgr.vbs /ipk "TTNVB-4X9Q3-TJR4H-KHJW4" 
+cscript slmgr.vbs /skms kms.lotro.cc
+cscript slmgr.vbs /ato
+@ECHO OFF
+
+:W10HOME
+cd C:\Windows\System32
+@ECHO ON
+cscript slmgr.vbs /ipk "TX9XD-98N7V-6WMQ6-BX7FG-H8Q99" 
+cscript slmgr.vbs /skms kms.lotro.cc
+cscript slmgr.vbs /ato
+pause
+@ECHO OFF
+GOTO END
+
+:W10HOMEN
+cd C:\Windows\System32
+@ECHO ON
+cscript slmgr.vbs /ipk "3KHY7-WNT83-DGQKR-F7HPR-844BM" 
 cscript slmgr.vbs /skms kms.lotro.cc
 cscript slmgr.vbs /ato
 @ECHO OFF
